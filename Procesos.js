@@ -23,3 +23,72 @@ function encriptador(mensaje, forma) {
     // Se retorna el mensaje nuevo
     return mensaje;
 }
+
+// DOM
+const textoEntrada = document.querySelector("#textoEntrada");
+const btnEncriptar = document.querySelector("#btnEncriptar");
+const textoSalida = document.querySelector("#textoSalida");
+const btnCopiar = document.querySelector("#btnCopiar")
+const btnDesencriptar = document.querySelector("#btnDesencriptar")
+const seccion2 = document.querySelectorAll(".area2")
+
+const titulo = document.querySelector("#titulo");
+const parrafo = document.querySelector("#parrafo");
+const muneco = document.querySelector("#muneco");
+
+//Boton Encriptar
+btnEncriptar.addEventListener("click",
+    () => {
+        if (textoEntrada.value !== "") {
+            ocultarBranding();
+            let mensaje = encriptador(textoEntrada.value, 1);
+            textoEntrada.value = "";
+            textoSalida.value = mensaje;
+        }
+        else {
+            alert('No puede estar vacio')
+        }
+    }
+);
+
+// Boton Copiar
+btnCopiar.addEventListener("click",
+    () => {
+        mostrarBranding();
+        textoEntrada.value = textoSalida.value; // Copiado automatico
+        textoSalida.value = ""; // Se limpia el valor del texto
+    }
+);
+
+// Boton Desencriptar
+btnDesencriptar.addEventListener("click",
+    () => {
+        if (textoEntrada.value !== "") {
+            ocultarBranding();
+            let mensaje = encriptador(textoEntrada.value, 2);
+            textoEntrada.value = "";
+            textoSalida.value = mensaje;
+        }
+        else {
+            alert('No puede estar vacio')
+        }
+    }
+);
+
+
+// Funciones DOM
+function ocultarBranding() {
+    titulo.classList.add("hide")
+    parrafo.classList.add("hide")
+    muneco.classList.add("hide")
+    textoSalida.classList.remove("hide")
+    btnCopiar.classList.remove("hide")
+}
+
+function mostrarBranding() {
+    titulo.classList.remove("hide")
+    parrafo.classList.remove("hide")
+    muneco.classList.remove("hide")
+    textoSalida.classList.add("hide")
+    btnCopiar.classList.add("hide")
+}
