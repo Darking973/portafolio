@@ -51,14 +51,11 @@ btnEncriptar.addEventListener("click",
     }
 );
 
-// Boton Copiar
-btnCopiar.addEventListener("click",
-    () => {
-        mostrarBranding();
-        textoEntrada.value = textoSalida.value; // Copiado automatico
-        textoSalida.value = ""; // Se limpia el valor del texto
-    }
-);
+btnCopiar.addEventListener("click", () => {
+    mostrarBranding();
+    navigator.clipboard.writeText(textoSalida.value); // Copiar mensaje encriptado al portapapeles
+    textoSalida.value = ""; // Se limpia el valor del texto
+});
 
 // Boton Desencriptar
 btnDesencriptar.addEventListener("click",

@@ -23,10 +23,31 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--colorSiete);
     gap: 8px;
     font-family: 'Inter';
     font-style: normal;
+
+    background-image: linear-gradient(
+        to bottom right,
+        #391ce2 0%,
+        #6b46ea 25%,
+        #8f61ec 50%,
+        #b681f6 75%,
+        #dda1ff 100%
+    );
+
+    background-size: 200% 200%;
+
+    animation: movimiento 4s linear infinite alternate;
+}
+
+@keyframes movimiento {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
 }
 
 body > header,
@@ -169,7 +190,7 @@ footer {
 }
 
 footer > * {
-    color: var(--colorUltimo);
+    color:  #000000;
 }
 
 footer .redesSociales {
